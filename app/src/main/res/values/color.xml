@@ -3,7 +3,7 @@
     <string-array name="color_array">
         <item>black</item>
         <item>blue</item>
-        <item>brown</item>
+        <item>yellow</item>
         <item>gray</item>
         <item>green</item>
         <item>orange</item>
@@ -12,6 +12,6 @@
         <item>red</item>
         <item>teal</item>
         <item>white</item>
-        <item>yellow</item>
+        <item>brown</item>
     </string-array>
 </resources>

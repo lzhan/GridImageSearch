@@ -150,7 +150,7 @@ public class SearchActivity extends ActionBarActivity {
     public void launchFilterView() {
         Intent i = new Intent(this, FilterActivity.class);
         if (filter == null)
-            filter = new Filter("medium", "blue", "car", null);
+            filter = new Filter("small", "", "car", null);
         i.putExtra("filter", filter);
         startActivityForResult(i, REQUEST_CODE);
 
