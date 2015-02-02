@@ -22,7 +22,8 @@
         android:onClick="onImageSearch"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:text="@string/search_label" />
+        android:text="@string/search_label"
+        android:layout_margin="3dp" />
 
     <GridView
         android:layout_width="match_parent"

@@ -19,5 +19,11 @@
         android:maxLines="2"
         android:ellipsize="end"
         android:text="Image Title"
-        android:id="@+id/tvTitle" />
+        android:id="@+id/tvTitle"
+        android:maxWidth="80dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="5dp"
+        android:textColor="#97180246"
+        android:textSize="10dp"
+        android:singleLine="true" />
 </LinearLayout>
