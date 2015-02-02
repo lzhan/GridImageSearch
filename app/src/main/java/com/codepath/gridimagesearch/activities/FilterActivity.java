@@ -8,34 +8,65 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 
 import com.codepath.gridimagesearch.R;
+import com.codepath.gridimagesearch.model.Filter;
 
 public class FilterActivity extends ActionBarActivity {
+    private Filter filter;
+    private Spinner spinnerSize;
+    private Spinner spinnerColor;
+    private Spinner spinnerType;
+    private EditText etSite;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filter);
+
+        filter = (Filter) getIntent().getSerializableExtra("filter");
+
+        spinnerSize = (Spinner) findViewById(R.id.spinnerSize);
+        spinnerColor = (Spinner) findViewById(R.id.spinnerColor);
+        spinnerType = (Spinner) findViewById(R.id.spinnerType);
+        etSite = (EditText) findViewById(R.id.etSite);
+
+        setSpinnerToValue(spinnerSize, filter.getSize());
+        setSpinnerToValue(spinnerColor, filter.getColor());
+        setSpinnerToValue(spinnerType, filter.getType());
+        etSite.setText(filter.getSite());
+
+    }
+
+    public void setSpinnerToValue(Spinner spinner, String value) {
+        int index = 0;
+        SpinnerAdapter adapter = spinner.getAdapter();
+        for (int i = 0; i < adapter.getCount(); i++) {
+            if (adapter.getItem(i).equals(value)) {
+                index = i;
+                break; // terminate loop
+            }
+        }
+        spinner.setSelection(index);
     }
 
     public void onSubmit(View v) {
-        Spinner spinnerSize = (Spinner) findViewById(R.id.spinnerSize);
-        Spinner spinnerColor = (Spinner) findViewById(R.id.spinnerColor);
-        Spinner spinnerType = (Spinner) findViewById(R.id.spinnerType);
-        EditText etSite = (EditText) findViewById(R.id.etSite);
 
         String size = spinnerSize.getSelectedItem().toString();
         String color = spinnerColor.getSelectedItem().toString();
         String type = spinnerType.getSelectedItem().toString();
         String site = etSite.getText().toString();
         System.out.println("*******before sending********"+size+color+type+site);
-        Intent filterData = new Intent();
-        filterData.putExtra("size", size);
-        filterData.putExtra("color", color);
-        filterData.putExtra("type", type);
-        filterData.putExtra("site", site);
 
+        filter.setSize(size);
+        filter.setColor(color);
+        filter.setType(type);
+        filter.setSite(site);
+
+
+        Intent filterData = new Intent();
+        filterData.putExtra("filter", filter);
         setResult(RESULT_OK, filterData);
         // closes the activity and returns to first screen
         this.finish();
