@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     tools:context=".SearchActivity">
 
-    <EditText
+ <!--   <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/etQuery"
@@ -25,7 +25,7 @@
         android:text="@string/search_label"
         android:layout_margin="3dp" />
 
-    <GridView
+        <GridView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/gvResult"
@@ -33,6 +33,15 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
         android:layout_below="@+id/etQuery"
+        android:numColumns="3"/>
+-->
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/gvResult"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
         android:numColumns="3"/>
 
 </RelativeLayout>

@@ -2,16 +2,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".SearchActivity">
+    <item android:id="@+id/action_search"
+        android:menuCategory="container"
+        android:orderInCategory="200"
+        android:title="Search"
+        android:icon="@drawable/search"
+        app:showAsAction="always|collapseActionView"
+        app:actionViewClass="android.widget.SearchView" />
     <item
         android:id="@+id/action_settings"
         android:title="@string/action_settings"
-        android:orderInCategory="100"
         app:showAsAction="never" />
     <item
         android:id="@+id/miFilter"
-        android:icon="@drawable/ic_setting"
+        android:icon="@drawable/new_launcher"
         android:onClick="onOptionsItemSelected"
-        app:showAsAction="ifRoom"
-        android:title="Filter">
-    </item>
+        android:menuCategory="container"
+        android:orderInCategory="100"
+        app:showAsAction="always"
+        android:title="Filter" />
 </menu>
